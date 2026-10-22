@@ -41,7 +41,7 @@ const getWelcomeMessageWithMeme = async (userId) => {
   const meme = await getMeme();
 
   return {
-    content: `Welcome ${userMention(userId)},
+    content: `Welcome to the Archive Bot ${userMention(userId)},
     Here's a meme for you to enjoy!`,
     embeds: [meme],
   };
