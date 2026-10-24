@@ -6,6 +6,7 @@ const MEME_URL = process.env.MEME_URL || "";
 const event = {
   name: "guildMemberAdd",
   async execute(member) {
+    console.log("🎉 JOIN EVENT FIRED:", member.user.tag);
     const channel = member.guild.channels.cache.find(
       (channel) => channel.name === CHANNEL_NAME
     );
