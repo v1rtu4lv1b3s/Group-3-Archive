@@ -1,4 +1,3 @@
-```js
 import { EmbedBuilder, userMention } from "discord.js";
 
 const CHANNEL_NAME = process.env.CHANNEL_NAME;
@@ -17,7 +16,16 @@ const event = {
     }
 
     const welcomeMessage = await getWelcomeMessageWithMeme(member.id);
-    await channel.send(welcomeMessage);
+    console.log("MEME_URL is set:", Boolean(MEME_URL));
+    console.log("Embed payload:", JSON.stringify(welcomeMessage.embeds));
+
+    try {
+      const sent = await channel.send(welcomeMessage);
+      console.log("Welcome sent. Embed count:", sent.embeds.length);
+      console.log("Embed image:", sent.embeds[0]?.image?.url ?? "NO IMAGE");
+    } catch (error) {
+      console.error("Failed to send welcome embed:", error);
+    }
   },
 };
 
@@ -31,4 +39,3 @@ const getWelcomeMessageWithMeme = async (userId) => {
 };
 
 export default event;
-```
