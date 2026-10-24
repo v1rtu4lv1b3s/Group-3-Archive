@@ -22,11 +22,11 @@ const event = {
 };
 
 const getWelcomeMessageWithMeme = async (userId) => {
-  const meme = new EmbedBuilder().setImage(MEME_URL);
-
   return {
     content: `Welcome to the Archive Bot ${userMention(userId)}!\nHere's a meme for you to enjoy!`,
-    embeds: [meme],
+    embeds: [
+      new EmbedBuilder().setImage(MEME_URL),
+    ],
   };
 };
 
